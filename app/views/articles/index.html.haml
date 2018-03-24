@@ -1,0 +1,13 @@
+.main
+  %h1.add-border-bottom Listing all articles
+  =link_to "Create New Article", new_article_path
+  %table
+    %tr
+      %th.add-bold Title
+      %th.add-bold Description
+    -@articles.each do |article|
+      %tr
+        %td= article.title
+        %td= article.description.truncate(60)
+        %td=link_to 'Edit',edit_article_path(article)
+        %td=link_to 'Show',article_path(article)

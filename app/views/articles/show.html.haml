@@ -1,0 +1,10 @@
+.main
+  %h1.add-border-bottom Showing selected article
+  .title
+    %strong Title:
+    %p=@article.title
+  .description
+    %strong Description:
+    %p=@article.description
+  %p=link_to "=>Back to articles listing", articles_path
+  %p=link_to "=>Edit this article",edit_article_path(@article)
