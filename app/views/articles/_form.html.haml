@@ -1,0 +1,15 @@
+.error
+  -if @article.errors.any?
+    %p.add-bold The following errors prevented the article from getting created.
+    %ul
+    -@article.errors.full_messages.each do |msg|
+      %li=msg
+=form_for @article do |f|
+  %p=f.label :title
+  .text_field
+    =f.text_field :title
+  %p=f.label :description
+  .text_area
+    %p=f.text_area :description
+    %p=f.submit"Send"
+    =link_to"=> Back to Article lists",articles_path
