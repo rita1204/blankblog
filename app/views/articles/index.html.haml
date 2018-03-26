@@ -1,14 +1,40 @@
 .main
-  %h1.add-border-bottom Listing all articles
-  =link_to "Create New Article", new_article_path
-  %table
-    %tr
-      %th.add-bold Title
-      %th.add-bold Description
-    -@articles.each do |article|
-      %tr
-        %td= article.title
-        %td= article.description.truncate(60)
-        %td=link_to 'Edit',edit_article_path(article)
-        %td=link_to 'Show',article_path(article)
-        %td=link_to 'delete',article_path(article),method: :delete,data: {confirm: "Are you sure?"}
+  %h1.add-border-bottom List of Artcles
+-@articles.each do |article|
+  .row
+    .col-xs-8.col-xs-offset-2
+      .well.well-lg
+        .article-title
+          =link_to "#{article.title}",article_path(article)
+        .article-body
+          =truncate(article.description,length:150)
+        .article-actions.right
+          =link_to "Edit",edit_article_path(article),{class: "btn btn-primary"}
+          =link_to "Delete",article_path(article),{class: "btn btn-danger ", method: :delete}
+
+
+
+
+
+
+
+
+
+  / .info=link_to "Create new",new_article_path
+  / .panel.panel-default
+  /   .panel-heading Articles
+  /   %table.table
+  /     %tr
+  /       %th.add-bold Title
+  /       %th.add-bold Description
+  /     -@articles.each do |article|
+  /       %tr
+  /         %td= article.title
+  /         %td= article.description.truncate(60)
+  /         %td=link_to 'Edit',edit_article_path(article)
+  /         %td=link_to 'Show',article_path(article)
+  /         %td=link_to 'Delete',article_path(article),method: :delete,data: {confirm: "Are you sure?"}
+
+
+
+

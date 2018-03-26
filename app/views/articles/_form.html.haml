@@ -1,15 +1,18 @@
-.error
-  -if @article.errors.any?
-    %p.add-bold The following errors prevented the article from getting created.
-    %ul
-    -@article.errors.full_messages.each do |msg|
-      %li=msg
-=form_for @article do |f|
-  %p=f.label :title
-  .text_field
-    =f.text_field :title
-  %p=f.label :description
-  .text_area
-    %p=f.text_area :description
-    %p=f.submit"Send"
-    =link_to"=> Back to Article lists",articles_path
+=render 'shared/errors', obj: @article
+
+.row
+  .col-xs-12
+    =form_for @article, html: {class: "form-horizontal",role:"form"} do |f|
+      .form-group
+        .control-label.col-sm-2
+          =f.label :title
+        .col-sm-8
+          =f.text_field :title, class: "form-control",placeholder: "Title of Article", autofocus: true
+      .form-group
+        .control-label.col-sm-2
+          =f.label :description
+        .col-sm-8
+          =f.text_area :description, rows: "10", class: "form-control",placeholder: "Body of Article", autofocus: true
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          =f.submit class:"btn btn-primary btn-lg"

@@ -1,4 +1,30 @@
 h1{
   font-weight: bold;
-  font-size: 2em;
+  font-size: 3em;
+  letter-spacing: -1px;
 }
+
+.center{
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.add-space{
+  padding-top: 120px;
+  padding-bottom: 10px;
+}
+
+.jumbotron{
+  background-image: url("/puzzle.jpg");
+  height:500px;
+  background-size: cover;
+}
+
+.add-border{
+  border-top: 1px solid #dfe4ea;
+
+}
+
