@@ -46,5 +46,6 @@ group :development do
   gem "haml-rails"
   gem 'erb2haml'
   gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+  gem 'bcrypt', '~> 3.1.7'
 end
 

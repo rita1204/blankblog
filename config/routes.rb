@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :users, only: [:new,:create]
+  get 'signup' => 'users#new'
+
+  resources :users, except: [:new]
 end

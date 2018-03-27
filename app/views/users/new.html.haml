@@ -1,0 +1,24 @@
+.main
+  =render 'shared/errors', obj: @user
+  %h1.add-border-bottom.center Signup for blank blog
+  .row
+    .col-xs-12
+      =form_for @user, html: {class: "form-horizontal",role:"form"} do |f|
+        .form-group
+          .control-label.col-sm-2
+            =f.label :username
+          .col-sm-8
+            =f.text_field :username, class: "form-control",placeholder: "Enter your name", autofocus: true
+        .form-group
+          .control-label.col-sm-2
+            =f.label :email
+          .col-sm-8
+            =f.email_field :email, rows: "1", class: "form-control",placeholder: "Enter your email", autofocus: true
+        .form-group
+          .control-label.col-sm-2
+            =f.label :password
+          .col-sm-8
+            =f.password_field :email, rows: "1", class: "form-control",placeholder: "Enter your password", autofocus: true
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            =f.submit "Signup", class:"btn btn-primary btn-lg"
