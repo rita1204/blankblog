@@ -2,6 +2,7 @@
   %h1#add-space.add-border-bottom= "Title: #{@article.title}"
   %h2.subtitle Description:
   %p.description-style=@article.description
-  .article-actions.right
-  =link_to "Edit",edit_article_path(@article),{class: "btn btn-primary"}
-  =link_to "Delete",article_path(@article),{class: "btn btn-danger ", method: :delete}
+  -if logged_in? && (current_user == @article.user || current_user.admin?)
+    .article-actions.right
+    =link_to "Edit",edit_article_path(@article),{class: "btn btn-primary"}
+    =link_to "Delete",article_path(@article),{class: "btn btn-danger ", method: :delete}

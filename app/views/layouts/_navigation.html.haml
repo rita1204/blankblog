@@ -4,6 +4,7 @@
       =link_to"blank blog",root_path,{class: "navbar-brand logo"}
     .nav.navbar-nav
       %li=link_to "Articles",articles_path
+      %li=link_to "Users",users_path
       %li.dropdown
         %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Actions
@@ -13,17 +14,19 @@
             =link_to"New Article",new_article_path
           %li
             %a{:href => "#"} Another action
-          %li
-            %a{:href => "#"} Something else here
-          %li.divider{:role => "separator"}
-          %li
-            %a{:href => "#"} Separated link
-          %li.divider{:role => "separator"}
-          %li
-            %a{:href => "#"} One more separated link
     .nav.navbar-nav.navbar-right
       -if logged_in?
         %li=link_to"LOG OUT",logout_path,method: :delete
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Your Profile
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              =link_to"Edit your profile",edit_user_path(current_user)
+              =link_to"View your profile",user_path(current_user)
+            %li
+              %a{:href => "#"} Another action
       -else
         %li=link_to"LOG IN",login_path
         %li=link_to"SIGN IN",signup_path
