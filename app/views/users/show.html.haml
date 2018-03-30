@@ -7,4 +7,6 @@
       %li.article-title
         =link_to @user.username, user_path(@user)
       %li=pluralize(@user.articles.count, "article") if @user.articles
+  .center
+    =will_paginate @user_articles
   =render 'articles/article',obj: @user.articles

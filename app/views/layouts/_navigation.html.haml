@@ -21,6 +21,12 @@
           %li.divider{:role => "separator"}
           %li
             %a{:href => "#"} One more separated link
+    .nav.navbar-nav.navbar-right
+      -if logged_in?
+        %li=link_to"LOG OUT",logout_path,method: :delete
+      -else
+        %li=link_to"LOG IN",login_path
+        %li=link_to"SIGN IN",signup_path
 
 
 
